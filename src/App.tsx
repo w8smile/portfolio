@@ -21,7 +21,7 @@ function App() {
             <Contact/>
             <Slogan/>
             <Footer/>
-            {/*<test></test>*/}
+            {/*<test></test3>*/}
 
         </div>
     );
