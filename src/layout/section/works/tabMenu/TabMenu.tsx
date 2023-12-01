@@ -1,17 +1,23 @@
 import React from 'react';
 import styled from "styled-components";
-import {theme} from "../../../../styles/Theme";
 import {Link} from "../../../../components/Link";
 
+export type TabsStatusType = 'all' | 'landing' | 'react' | 'spa'
+
+type TabMenuPropsType = {
+    tabsItems : Array<{ status: TabsStatusType, title: string }>
+    changeFilterStatus: (value: TabsStatusType | 'spa') => void
+    currentFilterStatus: string
+}
 
 
- export const TabMenu = (props: {menuItems: Array<string>}) => {
+export const TabMenu = (props: TabMenuPropsType ) => {
     return (
         <StyledMenu>
             <ul>
-                {props.menuItems.map((item, index)=>{
+                {props.tabsItems.map((item, index) => {
                     return <ListItem key={index}>
-                        <Link href="">{item}</Link>
+                        <Link active={props.currentFilterStatus === item.status} as={'button'} onClick={()=> {props.changeFilterStatus(item.status)}}>{item.title}</Link>
                     </ListItem>
 
                 })}
@@ -24,8 +30,8 @@ import {Link} from "../../../../components/Link";
 
 
 const StyledMenu = styled.nav`
-  
-  ul{
+
+  ul {
     display: flex;
     //gap: 20px;
     justify-content: space-between;
@@ -37,6 +43,6 @@ const StyledMenu = styled.nav`
 `
 
 const ListItem = styled.li`
-   
+
 `
 

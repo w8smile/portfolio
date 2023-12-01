@@ -3,9 +3,11 @@ import {theme} from "../../styles/Theme";
 
 const Slider = styled.div`
   max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid red;
 
 `
 

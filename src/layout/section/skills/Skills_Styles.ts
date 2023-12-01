@@ -2,7 +2,8 @@ import styled from "styled-components";
 import {theme} from "../../../styles/Theme";
 
 const Skills = styled.section`
-  background-color: pink;
+    position: relative;
+  
 
 `
 
