@@ -8,10 +8,13 @@ const Footer = styled.footer`
   position: relative;
 `
 const Name = styled.span`
-  ${font({family: "Josefin Sans sans-serif", weight: 700, Fmax:22, Fmin: 16})}
+  ${font({family: "Josefin Sans sans-serif", weight: 700, Fmax: 22, Fmin: 16})}
   letter-spacing: 3px;
-  
-  
+
+`
+
+const SocialItem = styled.li`
+
 `
 
 const SocialList = styled.ul`
@@ -27,13 +30,14 @@ const SocialLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+   transition: ${theme.animations.transition};
   color: ${theme.colors.accent};
+
   &:hover {
-      color: ${theme.colors.primaryBg};
+    color: ${theme.colors.primaryBg};
     transform: translateY(-4px);
-    
-    
+
+
 `
 
 const Copyright = styled.small`
@@ -41,9 +45,7 @@ const Copyright = styled.small`
   font-size: 12px;
   font-weight: 400;
 `
-const SocialItem = styled.li`
 
-`
 
 export const S = {
     Footer,

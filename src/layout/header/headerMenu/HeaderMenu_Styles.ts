@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
 
@@ -11,6 +12,7 @@ const Mask = styled.span `
   overflow-y: hidden;
   //outline: 1px solid red;
   color: ${theme.colors.accent};
+  transition: ${theme.animations.transition};
   
   & + & {
     top: 50%;
@@ -20,8 +22,17 @@ const Mask = styled.span `
     }
   }
 `
-const MenuItem = styled.nav`
+const MenuItem = styled.li`
     position: relative;
+  
+`
+
+const NavLink = styled(Link)`
+  text-align: center;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: transparent;
   
   &::before {
     content: "";
@@ -34,31 +45,24 @@ const MenuItem = styled.nav`
     right: -10px;
     z-index: 1;
     transform: scale(0);
+    transition: ${theme.animations.transition};
   }
-  
-  &:hover {
+
+  &:hover, &.active {
     &::before {
       transform: scale(1);
     }
-    
+
     ${Mask} {
       transform: skewX(12deg) translateX(5px);
       color ${theme.colors.font};
-      
+
       & + ${Mask} {
         transform: skewX(12deg) translateX(-5px);
       }
     }
   }
   
-`
-
-const Link = styled.a`
-  text-align: center;
-  font-family: Josefin Sans, sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: transparent;
 `
 
 
@@ -79,21 +83,30 @@ const MobileMenuPopup = styled.div<{is0pen: boolean}> `
   right: 0;
   bottom: 0;
   z-index: 99999;
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
   
-  ${props => props.is0pen && css<{is0pen: boolean}>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `}
+  
   ul{
     display: flex;
-    gap: 30px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 999999;
+    transition: 1s ease-in-out;
   }
+
+  ${props => props.is0pen && css<{is0pen: boolean}>`
+    transform: translateY(0);
+    
+    & ul {
+      gap: 30px
+    }
+    
+  `}
 `
 
 const BurgerButton = styled.button<{is0pen: boolean}>`
@@ -164,7 +177,7 @@ const DesktopMenu = styled.nav`
 
 
 export const S = {
-    Link, MenuItem, Mask,
+    NavLink, MenuItem, Mask,
     MobileMenu, MobileMenuPopup, BurgerButton,
     DesktopMenu
 }

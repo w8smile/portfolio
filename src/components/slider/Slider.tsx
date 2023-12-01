@@ -17,9 +17,9 @@ const Slide = (props: SlidePropsType) => {
 }
 
 const items = [
-    <Slide userName={"ivan ivanov"} text={"Надо любить жизнь больше, чем смысл жизни."}/>,
-    <Slide userName={"piotr petrov"} text={"Жизнь - это то, что с тобой происходит, пока ты строишь планы."}/>,
-    <Slide userName={"sasha sashanov"} text={"Ваше время ограничено, не тратьте его, живя чужой жизнью"}/>,
+    <Slide userName={"@ivan ivanov"} text={"Надо любить жизнь больше, чем смысл жизни."}/>,
+    <Slide userName={"@piotr petrov"} text={"Жизнь - это то, что с тобой происходит, пока ты строишь планы."}/>,
+    <Slide userName={"@sasha sashanov"} text={"Ваше время ограничено, не тратьте его, живя чужой жизнью"}/>,
 
 ]
 export const Slider = () => (
@@ -29,29 +29,3 @@ export const Slider = () => (
     /></S.Slider>
 
 );
-
-// import React from 'react';
-// import {FlexWrapper} from "../FlexWrapper";
-// import {S} from "./Slider_Styles"
-//
-//
-// export const Slider: React.FC = () => {
-//     return (
-//         <S.Slider>
-//             <FlexWrapper>
-//                 <S.Slide>
-//                     <S.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-//                         labore
-//                         et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</S.Text>
-//                     <S.Name>@Sergei Nakovnick</S.Name>
-//                 </S.Slide>
-//             </FlexWrapper>
-//             <S.Pagination>
-//                 <span></span>
-//                 <span className={"active"}></span>
-//                 <span></span>
-//             </S.Pagination>
-//         </S.Slider>
-//     );
-// };
-
